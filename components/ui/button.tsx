@@ -35,7 +35,6 @@ const darkModeStyles = {
 // ボタンのスタイルにダークモード用のスタイルを追加
 export const buttonVariantsWithDarkMode = cva(
   buttonVariants,
-  darkModeStyles
 );
 
 export interface ButtonProps
