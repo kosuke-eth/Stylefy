@@ -45,6 +45,8 @@ export const buttonVariantsWithDarkMode = cva(
 export interface ButtonProps
   extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'size'>, // ← 衝突回避
     VariantProps<typeof buttonVariants> {
+   // iconを手動で許可
+  size ?: 'sm' | 'md' | 'lg' | 'icon'; 
   asChild?: boolean;
 }
 
