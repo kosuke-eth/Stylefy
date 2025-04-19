@@ -18,6 +18,7 @@ export const buttonVariants = cva(
         sm: 'px-2 py-1',
         md: 'px-4 py-2',
         lg: 'px-6 py-3',
+        icon: 'px-6 py-3'
       },
     },
     defaultVariants: {
