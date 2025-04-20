@@ -2,10 +2,7 @@
 
 import * as React from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import {
-  DayPicker,
-  type IconProps,        // ✅ DayPicker が要求するアイコン用の型
-} from 'react-day-picker';
+import { DayPicker } from 'react-day-picker';
 
 import { cn } from '@/lib/utils';
 import { buttonVariants } from '@/components/ui/button';
@@ -58,12 +55,23 @@ function Calendar({
         ...classNames,
       }}
       components={{
-        IconLeft: (props: IconProps) => (
-          <ChevronLeft {...props} className="h-4 w-4" />
-        ),
-        IconRight: (props: IconProps) => (
-          <ChevronRight {...props} className="h-4 w-4" />
-        ),
+        Chevron: ({
+          orientation,
+          className: iconClass,
+          ...rest
+        }: {
+          orientation?: 'left' | 'right' | 'up' | 'down';
+          className?: string;
+        }) => {
+          const Icon = orientation === 'left' ? ChevronLeft : ChevronRight;
+          return (
+            <Icon
+              {...rest}
+              className={cn('h-4 w-4', iconClass)}
+              aria-hidden="true"
+            />
+          );
+        },
       }}
       {...props}
     />
@@ -72,4 +80,3 @@ function Calendar({
 Calendar.displayName = 'Calendar';
 
 export { Calendar };
-
